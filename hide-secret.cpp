@@ -21,7 +21,7 @@ int check_and_change(char* const text, const char* const secret,
         i = check_and_change(text, secret, i + shift) - shift;
     }
 
-    return shift + i;
+    return shift + i - 1;
 }
 
 int get_string_length(const char* const str)
