@@ -36,6 +36,11 @@ int get_string_length(const char* const str)
 
 void hide_secret(char* const text, const char* const secret)
 {
+    if (!text || !secret)
+    {
+        return;
+    }
+
     const int text_len = get_string_length(text);
     const int secret_len = get_string_length(secret);
     if (text_len <= 0 || secret_len <= 0 || text_len < secret_len)
@@ -46,6 +51,6 @@ void hide_secret(char* const text, const char* const secret)
     int i = 0;
     while (text[i] != '\0')
     {
-        i = check_and_change(text, secret, ++i);
+        i = check_and_change(text, secret, i) + 1;
     }
 }
